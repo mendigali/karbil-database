@@ -1,0 +1,10 @@
+insert into contacts (type_id, user_id, value) values (5, 61, '73 Northview Point');
+insert into contacts (type_id, user_id, value) values (5, 45, '773 Londonderry Point');
+insert into contacts (type_id, user_id, value) values (5, 68, '91 Crowley Road');
+insert into contacts (type_id, user_id, value) values (5, 38, '60875 Onsgard Alley');
+insert into contacts (type_id, user_id, value) values (5, 49, '627 Crescent Oaks Way');
+insert into contacts (type_id, user_id, value) values (5, 71, '82 International Parkway');
+insert into contacts (type_id, user_id, value) values (5, 82, '45876 Meadow Ridge Hill');
+insert into contacts (type_id, user_id, value) values (5, 95, '23051 Logan Way');
+insert into contacts (type_id, user_id, value) values (5, 82, '47787 Rockefeller Crossing');
+insert into contacts (type_id, user_id, value) values (5, 46, '8 Tennessee Pass');
