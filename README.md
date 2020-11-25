@@ -1,5 +1,13 @@
 # School management system
 
+## Vocabulary
+* Application logic - example: check if email address is correct in server side with php
+* Bridge table - used to divide many-to-many relationship into one-to-many
+* Lookup table - store static data
+* SERIAL can be used only once in a table because each table can have only 1 AUTO_INCREMENT attribute
+
+---
+
 When I will create Google Docs or Microsoft Word file, add Preface at the beginning of it, where I will say about this repo, that firstly I have made all the documentation in Github and it is better to look there.
 
 ## Table of contents
@@ -124,7 +132,15 @@ id | first_name | last_name | middle_name | date_of_birth | gender | preferred_l
  2  | ru   | rus  | Русский       | Russian      
  3  | kk   | kaz  | Қазақ         | Kazakh       
 
+# Competition
+## Attributes:
+1. id
+1. level (International, Republic, Regional, State)
 
+# Class roles
+## Attributes:
+1. id
+1. name (Curator, Teacher, Tutor, Student, )
 
 [Back to table of contents](#table-of-contents)
 # Business rules
