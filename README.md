@@ -1,5 +1,7 @@
 # School management system
 
+![Entity relationship diagram](ERD.png "ERD")
+
 ## Vocabulary
 * Application logic - example: check if email address is correct in server side with php
 * Bridge table - used to divide many-to-many relationship into one-to-many
