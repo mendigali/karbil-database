@@ -20,6 +20,7 @@
 1. [Potential future upgrades](#potential-future-upgrades)
 1. [Conclusion](#conclusion)
 1. [List of used literature and resources](#list-of-used-literature-and-resources)
+1. [Queries](#queries)
 
 # Abstract
 * Project sector
@@ -168,3 +169,93 @@ Also, I personally learned a lot of important and valuable experience from this 
 * [W3Schools SQL Tutorial](https://www.w3schools.com/sql/)
 
 [Back to table of contents](#table-of-contents)
+
+# Queries
+1. [Show list of the teachers and lessons that each of them teach](#query-1)
+1. [Show list of classes and their classrooms](#query-2)
+1. [Show lesson schedule for class with id equal 1](#query-3)
+
+[Back to table of contents](#table-of-contents)
+
+---
+## Query 1
+Show list of the teachers and lessons that each of them teach
+
+### Query:
+```sql
+SELECT `user`.`first_name`, `user`.`last_name`, `lesson`.`name`
+FROM `user`
+INNER JOIN `teacher`
+ON `user`.`id` = `teacher`.`user_id`
+INNER JOIN `lesson`
+ON `teacher`.`lesson_id` = `lesson`.`id`;
+```
+### Query result:
+
+| first\_name | last\_name | name |
+| :--- | :--- | :--- |
+| Ashlen | O'Grogane | ICT |
+| Levin | MacGiany | Chemistry |
+| Pavla | Abrami | Math |
+| Caralie | Donaldson | Math |
+| Ashien | Sleightholme | World history |
+| Patricio | Trowle | English language |
+| Harper | Gowdie | Kazakh language |
+| Lelah | Ducket | Physical education |
+| Tull | Gerrelt | Kazakh literature |
+| Domeniga | Leverton | Basic military training |
+
+[Back to query list](#queries)
+
+---
+## Query 2
+Show list of classes and their classrooms
+
+### Query:
+```sql
+SELECT `class`.*, `classroom`.`floor`
+FROM `class`
+INNER JOIN `classroom`
+ON `class`.`classroom_id` = `classroom`.`id`;
+```
+### Query result:
+
+| id | graduate\_year | parallel | classroom\_id | floor |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | 2020 | A | 3 | 1 |
+| 3 | 2021 | A | 1 | 1 |
+| 4 | 2021 | B | 11 | 3 |
+| 5 | 2022 | A | 9 | 3 |
+| 6 | 2022 | B | 2 | 1 |
+| 7 | 2023 | C | 10 | 3 |
+| 8 | 2023 | B | 7 | 2 |
+| 9 | 2024 | C | 6 | 2 |
+| 10 | 2024 | B | 4 | 2 |
+
+[Back to query list](#queries)
+
+---
+## Query 3
+Show lesson schedule for class with id equal 1
+
+### Query:
+```sql
+SELECT `day_of_week`.`name`, `lesson_schedule`.`start_time`, `lesson_schedule`.`finish_time`, `lesson`.`name`, `classroom`.`id`, `classroom`.`floor`
+FROM `lesson`
+INNER JOIN `lesson_schedule`
+ON `lesson`.`id` = `lesson_schedule`.`lesson_id`
+INNER JOIN `classroom`
+ON `lesson_schedule`.`classroom_id` = `classroom`.`id`
+INNER JOIN `day_of_week`
+ON `lesson_schedule`.`day_of_week_id` = `day_of_week`.`id`
+WHERE `lesson_schedule`.`class_id` = 1
+ORDER BY `day_of_week`.`id` ASC;
+```
+
+### Query result:
+
+| name | start\_time | finish\_time | name | id | floor |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Tuesday | 12:50:00 | 13:30:00 | Physics | 11 | 3 |
+| Thursday | 09:30:00 | 10:15:00 | Professional business | 8 | 3 |
+
