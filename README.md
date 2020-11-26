@@ -12,9 +12,14 @@
 1. [Abstract](#abstract)
 1. [Introduction](#introduction)
 1. [Purpose of the project](#purpose-of-the-project)
+1. [Project creation outline](#project-creation-outline)
 1. [Entities](#entities)
-    * [Student](#student)
 1. [Business rules](#business-rules)
+1. [Attributes](#attributes)
+1. [Database normalization](#database-normalization)
+1. [Potential future upgrades](#potential-future-upgrades)
+1. [Conclusion](#conclusion)
+1. [List of used literature and resources](#list-of-used-literature-and-resources)
 
 # Abstract
 * Project sector
@@ -58,6 +63,8 @@ To complete this project, I decided to create an action plan that I will rely on
 * List the business rules to be followed in the project.
 * Design ER diagram including all the attributes for each entity and relationship.
 * Create all entities, relationships and attributes in the database using SQL.
+
+[Back to table of contents](#table-of-contents)
 
 # Entities
 The first step in creating this project was to define the entities that will be stored in the database. I have defined 14 entities for this project.
@@ -159,3 +166,5 @@ Also, I personally learned a lot of important and valuable experience from this 
 * [MariaDB Documentation](https://mariadb.com/kb/en/documentation/)
 * [MySQL Documentation](https://dev.mysql.com/doc/)
 * [W3Schools SQL Tutorial](https://www.w3schools.com/sql/)
+
+[Back to table of contents](#table-of-contents)
