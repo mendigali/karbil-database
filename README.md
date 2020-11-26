@@ -259,3 +259,7 @@ ORDER BY `day_of_week`.`id` ASC;
 | Tuesday | 12:50:00 | 13:30:00 | Physics | 11 | 3 |
 | Thursday | 09:30:00 | 10:15:00 | Professional business | 8 | 3 |
 
+- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
+- [x] list syntax required (any unordered or ordered list supported)
+- [x] this is a complete item
+- [ ] this is an incomplete item
