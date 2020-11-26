@@ -179,7 +179,7 @@ Also, I personally learned a lot of important and valuable experience from this 
 
 ---
 ## Query 1
-Show list of the teachers and lessons that each of them teach
+> Show list of the teachers and lessons that each of them teach
 
 ### Query:
 ```sql
@@ -209,7 +209,7 @@ ON `teacher`.`lesson_id` = `lesson`.`id`;
 
 ---
 ## Query 2
-Show list of classes and their classrooms
+> Show list of classes and their classrooms
 
 ### Query:
 ```sql
@@ -236,7 +236,7 @@ ON `class`.`classroom_id` = `classroom`.`id`;
 
 ---
 ## Query 3
-Show lesson schedule for class with id equal 1
+> Show lesson schedule for class with id equal 1
 
 ### Query:
 ```sql
