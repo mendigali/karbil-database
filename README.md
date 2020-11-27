@@ -194,7 +194,7 @@ Also, I personally learned a lot of important and valuable experience from this 
 [Back to table of contents](#table-of-contents)
 
 ---
-## Query 1
+# Query 1
 Show list of the teachers and lessons that each of them teach
 
 ### Query:
@@ -226,7 +226,7 @@ ON `teacher`.`lesson_id` = `lesson`.`id`;
 [Back to query list](#queries)
 
 ---
-## Query 2
+# Query 2
 Show list of classes and their classrooms
 
 ### Query:
@@ -255,7 +255,7 @@ ON `class`.`classroom_id` = `classroom`.`id`;
 [Back to query list](#queries)
 
 ---
-## Query 3
+# Query 3
 Show lesson schedule for class with id equal 1
 
 ### Query:
@@ -283,7 +283,7 @@ ORDER BY `day_of_week`.`id` ASC;
 [Back to query list](#queries)
 
 ---
-## Query 4
+# Query 4
 Show achievements of every student on any competition
 
 ### Query:
@@ -324,7 +324,7 @@ ORDER BY `prize`.`id`, `user`.`first_name` ASC;
 [Back to query list](#queries)
 
 ---
-## Query 5
+# Query 5
 Show competitions where level of competition starts with "Rep"
 
 ### Query:
@@ -352,7 +352,7 @@ ORDER BY `prize`.`id`, `user`.`first_name` ASC;
 [Back to query list](#queries)
 
 ---
-## Query 6
+# Query 6
 Show information about each headman in school
 
 ### Query:
@@ -382,7 +382,7 @@ WHERE `class_role`.`name` = 'Headman';
 [Back to query list](#queries)
 
 ---
-## Query 7
+# Query 7
 Show number of participants for each club
 
 ### Query:
@@ -418,7 +418,7 @@ ORDER BY participants DESC;
 [Back to query list](#queries)
 
 ---
-## Query 8
+# Query 8
 Show different lessons that are attended by students who will graduate in 2020 or in 2021
 
 ### Query:
@@ -457,7 +457,7 @@ WHERE `class`.`graduate_year` = '2020' OR `class`.`graduate_year` = '2021';
 [Back to query list](#queries)
 
 ---
-## Query 9
+# Query 9
 Show only curators and user with birthday between 6 july 2003 and 21 november 2005
 
 ### Query:
@@ -497,13 +497,10 @@ WHERE `class_role`.`name` = 'Curator' OR `user`.`birth_date` BETWEEN '2003-07-06
 | Eada | 2004-12-22 | Male |
 | Orren | 2005-09-15 | Female |
 
-
-
-
 [Back to query list](#queries)
 
 ---
-## Query 10
+# Query 10
 Show minimum and maximum capacity of students that can fit in one classroom which has no camera inside
 
 ### Query:
@@ -523,7 +520,7 @@ WHERE `classroom`.`has_camera` <> 0;
 [Back to query list](#queries)
 
 ---
-## Query 11
+# Query 11
 Show the earliest starting lessons
 
 ### Query:
@@ -549,7 +546,7 @@ WHERE `lesson_schedule`.`start_time` = (
 [Back to query list](#queries)
 
 ---
-## Query 12
+# Query 12
 Show list of teachers who teach 3 lessons in which students win the most prizes in competition
 
 ### Query:
@@ -583,7 +580,7 @@ ON `teacher`.`lesson_id` = subject.`id`;
 [Back to query list](#queries)
 
 ---
-## Query 13
+# Query 13
 Show lessons that take place in classrooms with a capacity of more than 21 people
 
 ### Query:
@@ -622,7 +619,7 @@ ORDER BY `day_of_week`.`id` ASC,
 [Back to query list](#queries)
 
 ---
-## Query 14
+# Query 14
 Show details about teachers who teach lessons earlier than at 12:00
 
 ### Query:
@@ -653,7 +650,7 @@ WHERE `lesson_schedule`.`lesson_id` IN (
 [Back to query list](#queries)
 
 ---
-## Query 15
+# Query 15
 Show first name, country, city, address of users who participate in cybersport club
 
 ### Query:
@@ -688,12 +685,11 @@ WHERE `user_club_role`.`role_id` IN (
 | Kizzie | Norway | Oslo | Ryan Pass | 249 |
 | Xever | Kazakhstan | Almaty | Loomis Pass | 104 |
 
-
 [Back to query list](#queries)
 
 ---
 
-## Query 16
+# Query 16
 Show the most experienced teachers (those who have working experience > 30 years or any teacher category excluding "Without category")
 
 ### Query:
