@@ -434,3 +434,15 @@ insert into lesson_schedule (lesson_id, class_id, teacher_id, day_of_week_id, cl
 insert into lesson_schedule (lesson_id, class_id, teacher_id, day_of_week_id, classroom_id, start_time, finish_time) values (21, 4, 32, 4, 6, '9:00', '10:30');
 insert into lesson_schedule (lesson_id, class_id, teacher_id, day_of_week_id, classroom_id, start_time, finish_time) values (9, 2, 40, 7, 11, '14:50', '15:40');
 insert into lesson_schedule (lesson_id, class_id, teacher_id, day_of_week_id, classroom_id, start_time, finish_time) values (1, 4, 30, 3, 2, '9:15', '10:00');
+
+-- INSERT DETAILED INFO ABOUT TEACHERS
+insert into teacher (user_id, lesson_id, carier_start, category_id) values (31, 8, '1980-04-06', 3);
+insert into teacher (user_id, lesson_id, carier_start, category_id) values (32, 14, '1985-10-28', 1);
+insert into teacher (user_id, lesson_id, carier_start, category_id) values (33, 15, '1980-05-24', 2);
+insert into teacher (user_id, lesson_id, carier_start, category_id) values (34, 1, '1987-09-24', 3);
+insert into teacher (user_id, lesson_id, carier_start, category_id) values (35, 5, '1986-02-28', 3);
+insert into teacher (user_id, lesson_id, carier_start, category_id) values (36, 1, '1989-09-19', 5);
+insert into teacher (user_id, lesson_id, carier_start, category_id) values (37, 14, '1994-10-01', 5);
+insert into teacher (user_id, lesson_id, carier_start, category_id) values (38, 18, '1996-02-07', 1);
+insert into teacher (user_id, lesson_id, carier_start, category_id) values (39, 9, '1995-06-22', 6);
+insert into teacher (user_id, lesson_id, carier_start, category_id) values (40, 16, '1983-01-12', 4);
