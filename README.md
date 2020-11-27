@@ -174,28 +174,32 @@ Also, I personally learned a lot of important and valuable experience from this 
 [Back to table of contents](#table-of-contents)
 
 # Queries
-1. [Show list of the teachers and lessons that each of them teach](#query-1)
-1. [Show list of classes and their classrooms](#query-2)
-1. [Show lesson schedule for class with id equal 1](#query-3)
-1. [Show achievements of every student on any competition](#query-4)
-1. [Show competitions where level of competition starts with "Rep"](#query-5)
-1. [Show information about each headman in school](#query-6)
-1. [Show number of participants for each club](#query-7)
-1. [Show different lessons that are attended by students who will graduate in 2020 or in 2021](#query-8)
-1. [Show only curators and user with birthday between 6 july 2003 and 21 november 2005](#query-9)
-1. [Show minimum and maximum capacity of students that can fit in one classroom which has no camera inside](#query-10)
-1. [Show the earliest starting lessons](#query-11)
-1. [Show list of teachers who teach 3 lessons in which students win the most prizes in competition](#query-12)
-1. [Show lessons that take place in classrooms with a capacity of more than 21 people](#query-13)
-1. [Show details about teachers who teach lessons earlier than at 12:00](#query-14)
-1. [Show first name, country, city, address of users who participate in cybersport club](#query-15)
-1. [Show the most experienced teachers (those who have working experience > 30 years or any teacher category excluding "Without category")](#query-16)
+1. [Show list of the teachers and lessons that each of them teach.](#query-1)
+1. [Show list of classes and their classrooms.](#query-2)
+1. [Show lesson schedule for class with id equal 1.](#query-3)
+1. [Show achievements of every student on any competition.](#query-4)
+1. [Show competitions where level of competition starts with "Rep".](#query-5)
+1. [Show information about each headman in school.](#query-6)
+1. [Show number of participants for each club.](#query-7)
+1. [Show different lessons that are attended by students who will graduate in 2020 or in 2021.](#query-8)
+1. [Show only curators and user with birthday between 6 july 2003 and 21 november 2005.](#query-9)
+1. [Show minimum and maximum capacity of students that can fit in one classroom which has no camera inside.](#query-10)
+1. [Show the earliest starting lessons.](#query-11)
+1. [Show list of teachers who teach 3 lessons in which students win the most prizes in competition.](#query-12)
+1. [Show lessons that take place in classrooms with a capacity of more than 21 people.](#query-13)
+1. [Show details about teachers who teach lessons earlier than at 12:00.](#query-14)
+1. [Show first name, country, city, address of users who participate in cybersport club.](#query-15)
+1. [Show the most experienced teachers (those who have working experience > 30 years or any teacher category excluding "Without category").](#query-16)
+1. [Show each student of the school.](#query-17)
+1. [Show list of curators and tutor.](#query-18)
+1. [Show students and their club, even if they have not joined any.](#query-19)
+1. [Show schedule for clubs.](#query-20)
 
 [Back to table of contents](#table-of-contents)
 
 ---
 # Query 1
-Show list of the teachers and lessons that each of them teach
+Show list of the teachers and lessons that each of them teach.
 
 **SQL command:**
 ```sql
@@ -226,7 +230,7 @@ ON `teacher`.`lesson_id` = `lesson`.`id`;
 
 ---
 # Query 2
-Show list of classes and their classrooms
+Show list of classes and their classrooms.
 
 **SQL command:**
 ```sql
@@ -254,7 +258,7 @@ ON `class`.`classroom_id` = `classroom`.`id`;
 
 ---
 # Query 3
-Show lesson schedule for class with id equal 1
+Show lesson schedule for class with id equal 1.
 
 **SQL command:**
 ```sql
@@ -282,11 +286,12 @@ ORDER BY `day_of_week`.`id` ASC;
 
 ---
 # Query 4
-Show achievements of every student on any competition
+Show achievements of every student on any competition.
 
 **SQL command:**
 ```sql
-SELECT `user`.`first_name`, `user`.`last_name`, `prize`.`name`, `competition`.`title`
+SELECT `user`.`first_name`, `user`.`last_name`,
+       `prize`.`name` AS 'Medal', `competition`.`title` AS 'Competition'
 FROM `user`
 INNER JOIN `user_competition`
 ON `user`.`id` = `user_competition`.`user_id`
@@ -300,7 +305,7 @@ ORDER BY `prize`.`id`, `user`.`first_name` ASC;
 **Output result after executing SQL command:**
 
 <!-- Query 4 result table -->
-| first\_name | last\_name | name | title |
+| first\_name | last\_name | Medal | Competition |
 | :--- | :--- | :--- | :--- |
 | Eada | Hopfer | Gold | magna bibendum |
 | Maurizio | Puttergill | Gold | curae |
@@ -318,12 +323,11 @@ ORDER BY `prize`.`id`, `user`.`first_name` ASC;
 | Roda | Botger | Participant | quis |
 | Uta | Lloyd-Williams | Participant | quisque |
 
-
 [Back to query list](#queries)
 
 ---
 # Query 5
-Show competitions where level of competition starts with "Rep"
+Show competitions where level of competition starts with "Rep".
 
 **SQL command:**
 ```sql
@@ -351,7 +355,7 @@ ORDER BY `prize`.`id`, `user`.`first_name` ASC;
 
 ---
 # Query 6
-Show information about each headman in school
+Show information about each headman in school.
 
 **SQL command:**
 ```sql
@@ -381,7 +385,7 @@ WHERE `class_role`.`name` = 'Headman';
 
 ---
 # Query 7
-Show number of participants for each club
+Show number of participants for each club.
 
 **SQL command:**
 ```sql
@@ -417,7 +421,7 @@ ORDER BY participants DESC;
 
 ---
 # Query 8
-Show different lessons that are attended by students who will graduate in 2020 or in 2021
+Show different lessons that are attended by students who will graduate in 2020 or in 2021.
 
 **SQL command:**
 ```sql
@@ -456,7 +460,7 @@ WHERE `class`.`graduate_year` = '2020' OR `class`.`graduate_year` = '2021';
 
 ---
 # Query 9
-Show only curators and user with birthday between 6 july 2003 and 21 november 2005
+Show only curators and user with birthday between 6 july 2003 and 21 november 2005.
 
 **SQL command:**
 ```sql
@@ -499,7 +503,7 @@ WHERE `class_role`.`name` = 'Curator' OR `user`.`birth_date` BETWEEN '2003-07-06
 
 ---
 # Query 10
-Show minimum and maximum capacity of students that can fit in one classroom which has no camera inside
+Show minimum and maximum capacity of students that can fit in one classroom which has no camera inside.
 
 **SQL command:**
 ```sql
@@ -519,7 +523,7 @@ WHERE `classroom`.`has_camera` <> 0;
 
 ---
 # Query 11
-Show the earliest starting lessons
+Show the earliest starting lessons.
 
 **SQL command:**
 ```sql
@@ -545,7 +549,7 @@ WHERE `lesson_schedule`.`start_time` = (
 
 ---
 # Query 12
-Show list of teachers who teach 3 lessons in which students win the most prizes in competition
+Show list of teachers who teach 3 lessons in which students win the most prizes in competition.
 
 **SQL command:**
 ```sql
@@ -579,7 +583,7 @@ ON `teacher`.`lesson_id` = subject.`id`;
 
 ---
 # Query 13
-Show lessons that take place in classrooms with a capacity of more than 21 people
+Show lessons that take place in classrooms with a capacity of more than 21 people.
 
 **SQL command:**
 ```sql
@@ -618,7 +622,7 @@ ORDER BY `day_of_week`.`id` ASC,
 
 ---
 # Query 14
-Show details about teachers who teach lessons earlier than at 12:00
+Show details about teachers who teach lessons earlier than at 12:00.
 
 **SQL command:**
 ```sql
@@ -649,7 +653,7 @@ WHERE `lesson_schedule`.`lesson_id` IN (
 
 ---
 # Query 15
-Show first name, country, city, address of users who participate in cybersport club
+Show first name, country, city, address of users who participate in cybersport club.
 
 **SQL command:**
 ```sql
@@ -688,7 +692,7 @@ WHERE `user_club_role`.`role_id` IN (
 ---
 
 # Query 16
-Show the most experienced teachers (those who have working experience > 30 years or any teacher category excluding "Without category")
+Show the most experienced teachers (those who have working experience > 30 years or any teacher category excluding "Without category").
 
 **SQL command:**
 ```sql
@@ -720,5 +724,184 @@ WHERE `teacher`.`user_id` IN (
 | Tull | Gerrelt | Kazakh literature |
 | Patricio | Trowle | Turkish language |
 | Lelah | Ducket | Religious studies |
+
+[Back to query list](#queries)
+
+---
+
+# Query 17
+Show each student of the school.
+
+**SQL command:**
+```sql
+SELECT c.graduate_year, c.parallel,
+       u.first_name, u.last_name, u.middle_name
+FROM user u
+INNER JOIN user_class uc on u.id = uc.user_id
+INNER JOIN class c on uc.class_id = c.id
+INNER JOIN class_role cr on uc.role_id = cr.id
+WHERE cr.name = 'Student'
+ORDER BY c.graduate_year, c.parallel, u.first_name,
+         u.last_name, u.middle_name;
+```
+
+**Output result after executing SQL command:**
+
+<!-- Query 17 result table -->
+| graduate\_year | parallel | first\_name | last\_name | middle\_name |
+| :--- | :--- | :--- | :--- | :--- |
+| 2020 | A | Ceciley | Pantone | Challender |
+| 2020 | A | Joyous | Ramalhete | NULL |
+| 2020 | A | Kizzie | Kembrey | Giabucci |
+| 2020 | A | Renault | Hebbard | Glaisner |
+| 2020 | A | Xever | Mars | Lowndsbrough |
+| 2020 | B | Aloysius | Elener | Challener |
+| 2020 | B | Boone | Salatino | Morland |
+| 2020 | B | Mari | Busse | Pemberton |
+| 2020 | B | Rina | Uppett | Gherardini |
+| 2020 | B | Uta | Lloyd-Williams | NULL |
+| 2021 | A | Bastian | Papachristophorou | Bratcher |
+| 2021 | A | Isaak | Stockwell | Berryann |
+| 2021 | A | Nydia | Clues | Priter |
+| 2021 | A | Pace | Vanns | Slyman |
+| 2021 | A | Roda | Botger | Chupin |
+| 2021 | B | Eada | Hopfer | Vant |
+| 2021 | B | Hamnet | Tampling | Natwick |
+| 2021 | B | Maurizio | Puttergill | Ridder |
+| 2021 | B | Nicolina | Thickens | Glynn |
+| 2021 | B | Orren | Arrault | Johannesson |
+
+[Back to query list](#queries)
+
+---
+
+# Query 18
+Show list of curators and tutor.
+
+**SQL command:**
+```sql
+SELECT cr.name AS "Role", c.graduate_year, c.parallel,
+       u.first_name, u.last_name, u.middle_name
+FROM user u
+INNER JOIN user_class uc on u.id = uc.user_id
+INNER JOIN class c on uc.class_id = c.id
+INNER JOIN class_role cr on uc.role_id = cr.id
+WHERE cr.name = 'Tutor' OR cr.name = 'Curator'
+ORDER BY cr.name, c.graduate_year, c.parallel,
+         u.first_name, u.last_name, u.middle_name;
+```
+
+**Output result after executing SQL command:**
+
+<!-- Query 18 result table -->
+| Role | graduate\_year | parallel | first\_name | last\_name | middle\_name |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Curator | 2020 | A | Alick | Craster | Bandiera |
+| Curator | 2020 | B | Rosemarie | Stanistreet | Goalley |
+| Curator | 2021 | A | Lillis | Jeffryes | Ivanichev |
+| Curator | 2021 | B | Christy | Lydden | Valentinetti |
+| Tutor | 2020 | A | Eadie | Iliffe | Lindborg |
+| Tutor | 2020 | B | Pamella | Cressey | Cracker |
+| Tutor | 2021 | A | Corabel | Simonett | Scopes |
+| Tutor | 2021 | B | Tab | Abrahamovitz | Curd |
+
+[Back to query list](#queries)
+
+---
+
+# Query 19
+Show students and their club, even if they have not joined any.
+
+**SQL command:**
+```sql
+SELECT c.name AS 'Club name', cr.name AS 'Club role',
+       u.first_name, u.last_name, u.email
+FROM user u
+LEFT JOIN user_club_role ucr on u.id = ucr.user_id
+LEFT JOIN club_role cr on ucr.role_id = cr.id
+LEFT JOIN club c on cr.club_id = c.id
+WHERE u.id IN (
+    SELECT u.id
+    FROM user u
+    INNER JOIN user_class uc on u.id = uc.user_id
+    INNER JOIN class c on uc.class_id = c.id
+    INNER JOIN class_role cr on uc.role_id = cr.id
+    WHERE cr.name = 'Student'
+    ORDER BY c.graduate_year, c.parallel, u.first_name,
+             u.last_name, u.middle_name
+)
+ORDER BY c.name, cr.name,
+         u.first_name, u.last_name, u.email;
+```
+
+**Output result after executing SQL command:**
+
+<!-- Query 19 result table -->
+| Club name | Club role | first\_name | last\_name | email |
+| :--- | :--- | :--- | :--- | :--- |
+| NULL | NULL | Hamnet | Tampling | hnatwickf@1688.com |
+| NULL | NULL | Nydia | Clues | npriterc@tuttocitta.it |
+| NULL | NULL | Renault | Hebbard | rglaisner3@people.com.cn |
+| Cybersport club | CS:GO player | Ceciley | Pantone | cchallender2@guardian.co.uk |
+| Cybersport club | DOTA 2 player | Kizzie | Kembrey | kgiabucci1@goodreads.com |
+| Cybersport club | Fortnite player | Xever | Mars | xlowndsbrough0@networkadvertising.org |
+| Intellectum club | Participant | Nicolina | Thickens | nglynng@comsenz.com |
+| Media club | Photographer | Isaak | Stockwell | iberryanne@businessweek.com |
+| Media club | Video editor | Pace | Vanns | pslymand@google.ru |
+| Music club | Dombra player | Bastian | Papachristophorou | bbratchera@oakley.com |
+| Music club | Guitar player | Roda | Botger | rchupinb@feedburner.com |
+| Music club | Sound producer | Mari | Busse | mpemberton8@blogger.com |
+| Music club | Vocal | Aloysius | Elener | achallener9@pinterest.com |
+| Robotics club | Arduino | Maurizio | Puttergill | mridderi@ning.com |
+| Robotics club | Lego | Orren | Arrault | ojohannessonj@yellowbook.com |
+| Robotics club | VEX | Eada | Hopfer | evanth@mail.ru |
+| Sport club | Basketball player | Uta | Lloyd-Williams | uretallick5@buzzfeed.com |
+| Sport club | Boxer | Rina | Uppett | rgherardini7@smh.com.au |
+| Sport club | Football player | Boone | Salatino | bmorland6@cam.ac.uk |
+| Sport club | Gymnast | Joyous | Ramalhete | juphill4@huffingtonpost.com |
+
+[Back to query list](#queries)
+
+---
+
+# Query 20
+Show schedule for clubs.
+
+**SQL command:**
+```sql
+SELECT c.name AS 'Club name', dow.name AS 'Day of the week',
+       cs.start_time AS 'Start', cs.finish_time AS 'Finish'
+FROM club c
+INNER JOIN club_schedule cs on c.id = cs.club_id
+INNER JOIN day_of_week dow on cs.day_of_week_id = dow.id
+ORDER BY dow.id ASC, cs.start_time ASC, cs.finish_time ASC,
+         c.name ASC;
+```
+
+**Output result after executing SQL command:**
+
+<!-- Query 20 result table -->
+| Club name | Day of the week | Start | Finish |
+| :--- | :--- | :--- | :--- |
+| Media club | Monday | 13:30:00 | 14:30:00 |
+| Music club | Monday | 16:00:00 | 17:45:00 |
+| Robotics club | Monday | 19:30:00 | 20:00:00 |
+| Debate club | Tuesday | 12:45:00 | 13:30:00 |
+| Intellectum club | Tuesday | 16:30:00 | 17:00:00 |
+| Cybersport club | Wednesday | 11:40:00 | 12:30:00 |
+| Sport club | Wednesday | 17:00:00 | 17:30:00 |
+| Music club | Thursday | 08:30:00 | 09:30:00 |
+| Charity club | Thursday | 09:40:00 | 10:20:00 |
+| Music club | Thursday | 11:45:00 | 12:25:00 |
+| Debate club | Thursday | 12:15:00 | 13:45:00 |
+| Speed reading club | Thursday | 18:00:00 | 19:00:00 |
+| Media club | Friday | 09:45:00 | 11:00:00 |
+| Debate club | Friday | 18:50:00 | 19:20:00 |
+| Debate club | Friday | 19:20:00 | 19:50:00 |
+| Robotics club | Saturday | 09:30:00 | 10:10:00 |
+| Intellectum club | Saturday | 10:20:00 | 11:00:00 |
+| Media club | Saturday | 17:45:00 | 19:00:00 |
+| Intellectum club | Sunday | 08:50:00 | 10:50:00 |
+| Media club | Sunday | 13:45:00 | 15:00:00 |
 
 [Back to query list](#queries)
