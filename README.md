@@ -228,7 +228,7 @@ ON `teacher`.`lesson_id` = `lesson`.`id`;
 # Query 2
 Show list of classes and their classrooms
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT `class`.*, `classroom`.`floor`
 FROM `class`
@@ -256,7 +256,7 @@ ON `class`.`classroom_id` = `classroom`.`id`;
 # Query 3
 Show lesson schedule for class with id equal 1
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT `day_of_week`.`name`, `lesson_schedule`.`start_time`, `lesson_schedule`.`finish_time`, `lesson`.`name`, `classroom`.`id`, `classroom`.`floor`
 FROM `lesson`
@@ -284,7 +284,7 @@ ORDER BY `day_of_week`.`id` ASC;
 # Query 4
 Show achievements of every student on any competition
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT `user`.`first_name`, `user`.`last_name`, `prize`.`name`, `competition`.`title`
 FROM `user`
@@ -325,7 +325,7 @@ ORDER BY `prize`.`id`, `user`.`first_name` ASC;
 # Query 5
 Show competitions where level of competition starts with "Rep"
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT `user`.`first_name`, `user`.`last_name`, `prize`.`name`, `competition`.`title`
 FROM `user`
@@ -353,7 +353,7 @@ ORDER BY `prize`.`id`, `user`.`first_name` ASC;
 # Query 6
 Show information about each headman in school
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT `user`.`first_name`, `class`.`graduate_year`, `class`.`parallel`, `user`.`email`, `user`.`phone`
 FROM `user`
@@ -383,7 +383,7 @@ WHERE `class_role`.`name` = 'Headman';
 # Query 7
 Show number of participants for each club
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT `club`.`name`, COUNT(`club`.`name`) AS participants
 FROM `club`
@@ -419,7 +419,7 @@ ORDER BY participants DESC;
 # Query 8
 Show different lessons that are attended by students who will graduate in 2020 or in 2021
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT DISTINCT `lesson`.`name`
 FROM `lesson`
@@ -458,7 +458,7 @@ WHERE `class`.`graduate_year` = '2020' OR `class`.`graduate_year` = '2021';
 # Query 9
 Show only curators and user with birthday between 6 july 2003 and 21 november 2005
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT `user`.`first_name`, `user`.`birth_date`,
 CASE
@@ -501,7 +501,7 @@ WHERE `class_role`.`name` = 'Curator' OR `user`.`birth_date` BETWEEN '2003-07-06
 # Query 10
 Show minimum and maximum capacity of students that can fit in one classroom which has no camera inside
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT MIN(`classroom`.`capacity`) AS "Minimum", MAX(`classroom`.`capacity`) AS "Maximum"
 FROM `classroom`
@@ -521,7 +521,7 @@ WHERE `classroom`.`has_camera` <> 0;
 # Query 11
 Show the earliest starting lessons
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT `lesson`.`name`, `lesson_schedule`.`start_time`, `lesson_schedule`.`finish_time`
 FROM `lesson`
@@ -547,7 +547,7 @@ WHERE `lesson_schedule`.`start_time` = (
 # Query 12
 Show list of teachers who teach 3 lessons in which students win the most prizes in competition
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT `user`.`first_name`, `user`.`last_name`, subject.`name` AS "Lesson name"
 FROM `user`
@@ -581,7 +581,7 @@ ON `teacher`.`lesson_id` = subject.`id`;
 # Query 13
 Show lessons that take place in classrooms with a capacity of more than 21 people
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT `lesson`.`name`, `lesson_schedule`.`start_time`, `day_of_week`.`name` AS "Day of the week"
 FROM `lesson`
@@ -620,7 +620,7 @@ ORDER BY `day_of_week`.`id` ASC,
 # Query 14
 Show details about teachers who teach lessons earlier than at 12:00
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT `user`.`first_name`, `user`.`last_name`, `user`.`phone`
 FROM `user`
@@ -651,7 +651,7 @@ WHERE `lesson_schedule`.`lesson_id` IN (
 # Query 15
 Show first name, country, city, address of users who participate in cybersport club
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT `user`.`first_name`, `country`.`name` AS "Country", `city`.`name` AS "City", `address`.`street_name`, `address`.`house_number`
 FROM `country`
@@ -690,7 +690,7 @@ WHERE `user_club_role`.`role_id` IN (
 # Query 16
 Show the most experienced teachers (those who have working experience > 30 years or any teacher category excluding "Without category")
 
-**SQL command**
+**SQL command:**
 ```sql
 SELECT `user`.`first_name`, `user`.`last_name`, `lesson`.`name` AS "Lesson"
 FROM `user`
