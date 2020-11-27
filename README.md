@@ -194,6 +194,7 @@ Also, I personally learned a lot of important and valuable experience from this 
 1. [Show list of curators and tutor.](#query-18)
 1. [Show students and their club, even if they have not joined any.](#query-19)
 1. [Show schedule for clubs.](#query-20)
+1. [Show lesson schedule.](#query-21)
 
 [Back to table of contents](#table-of-contents)
 
@@ -902,5 +903,45 @@ ORDER BY dow.id ASC, cs.start_time ASC, cs.finish_time ASC,
 | Media club | Saturday | 17:45:00 | 19:00:00 |
 | Intellectum club | Sunday | 08:50:00 | 10:50:00 |
 | Media club | Sunday | 13:45:00 | 15:00:00 |
+
+[Back to query list](#queries)
+
+---
+
+# Query 21
+Show lesson schedule.
+
+**SQL command:**
+```sql
+SELECT l.name AS 'Lesson', c.graduate_year, c.parallel,
+       dow.name AS 'Day of the week',
+       ls.start_time AS 'Start', ls.finish_time AS 'Finish'
+FROM lesson_schedule ls
+INNER JOIN lesson l on ls.lesson_id = l.id
+INNER JOIN class c on ls.class_id = c.id
+INNER JOIN day_of_week dow on ls.day_of_week_id = dow.id
+ORDER BY dow.id, ls.start_time, ls.finish_time, l.name;
+```
+
+**Output result after executing SQL command:**
+
+<!-- Query 21 result table -->
+| Lesson | graduate\_year | parallel | Day of the week | Start | Finish |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Russian language | 2021 | B | Monday | 11:50:00 | 12:35:00 |
+| Physics | 2020 | A | Tuesday | 12:50:00 | 13:30:00 |
+| Chemistry | 2021 | A | Tuesday | 15:30:00 | 16:10:00 |
+| ICT | 2021 | B | Wednesday | 09:15:00 | 10:00:00 |
+| Turkish language | 2020 | A | Wednesday | 15:50:00 | 16:40:00 |
+| Self-knowledge | 2021 | B | Thursday | 09:00:00 | 10:30:00 |
+| German language | 2020 | B | Thursday | 09:10:00 | 10:30:00 |
+| Professional business | 2020 | A | Thursday | 09:30:00 | 10:15:00 |
+| German language | 2021 | B | Thursday | 10:30:00 | 12:00:00 |
+| Physics | 2020 | B | Saturday | 09:10:00 | 17:39:00 |
+| Human. Society. Right | 2021 | A | Saturday | 10:00:00 | 10:45:00 |
+| Basic military training | 2021 | B | Saturday | 16:45:00 | 17:30:00 |
+| Kazakh literature | 2021 | B | Sunday | 13:30:00 | 14:10:00 |
+| Russian language | 2021 | B | Sunday | 14:40:00 | 15:25:00 |
+| English language | 2020 | B | Sunday | 14:50:00 | 15:40:00 |
 
 [Back to query list](#queries)
