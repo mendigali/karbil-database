@@ -197,7 +197,7 @@ Also, I personally learned a lot of important and valuable experience from this 
 # Query 1
 Show list of the teachers and lessons that each of them teach
 
-### Query:
+**SQL command:**
 ```sql
 SELECT `user`.`first_name`, `user`.`last_name`, `lesson`.`name`
 FROM `user`
@@ -206,7 +206,7 @@ ON `user`.`id` = `teacher`.`user_id`
 INNER JOIN `lesson`
 ON `teacher`.`lesson_id` = `lesson`.`id`;
 ```
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Put query 1 result table -->
 | first\_name | last\_name | name |
@@ -222,21 +222,20 @@ ON `teacher`.`lesson_id` = `lesson`.`id`;
 | Tull | Gerrelt | Kazakh literature |
 | Domeniga | Leverton | Basic military training |
 
-
 [Back to query list](#queries)
 
 ---
 # Query 2
 Show list of classes and their classrooms
 
-### Query:
+**SQL command**
 ```sql
 SELECT `class`.*, `classroom`.`floor`
 FROM `class`
 INNER JOIN `classroom`
 ON `class`.`classroom_id` = `classroom`.`id`;
 ```
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Put query 2 result table -->
 | id | graduate\_year | parallel | classroom\_id | floor |
@@ -251,14 +250,13 @@ ON `class`.`classroom_id` = `classroom`.`id`;
 | 9 | 2024 | A | 6 | 2 |
 | 10 | 2024 | B | 4 | 2 |
 
-
 [Back to query list](#queries)
 
 ---
 # Query 3
 Show lesson schedule for class with id equal 1
 
-### Query:
+**SQL command**
 ```sql
 SELECT `day_of_week`.`name`, `lesson_schedule`.`start_time`, `lesson_schedule`.`finish_time`, `lesson`.`name`, `classroom`.`id`, `classroom`.`floor`
 FROM `lesson`
@@ -272,7 +270,7 @@ WHERE `lesson_schedule`.`class_id` = 1
 ORDER BY `day_of_week`.`id` ASC;
 ```
 
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Query 3 result table -->
 | name | start\_time | finish\_time | name | id | floor |
@@ -286,7 +284,7 @@ ORDER BY `day_of_week`.`id` ASC;
 # Query 4
 Show achievements of every student on any competition
 
-### Query:
+**SQL command**
 ```sql
 SELECT `user`.`first_name`, `user`.`last_name`, `prize`.`name`, `competition`.`title`
 FROM `user`
@@ -299,7 +297,7 @@ ON `competition`.`id` = `user_competition`.`competition_id`
 ORDER BY `prize`.`id`, `user`.`first_name` ASC;
 ```
 
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Query 4 result table -->
 | first\_name | last\_name | name | title |
@@ -327,7 +325,7 @@ ORDER BY `prize`.`id`, `user`.`first_name` ASC;
 # Query 5
 Show competitions where level of competition starts with "Rep"
 
-### Query:
+**SQL command**
 ```sql
 SELECT `user`.`first_name`, `user`.`last_name`, `prize`.`name`, `competition`.`title`
 FROM `user`
@@ -340,7 +338,7 @@ ON `competition`.`id` = `user_competition`.`competition_id`
 ORDER BY `prize`.`id`, `user`.`first_name` ASC;
 ```
 
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Query 5 result table -->
 | title | name | start\_date |
@@ -355,7 +353,7 @@ ORDER BY `prize`.`id`, `user`.`first_name` ASC;
 # Query 6
 Show information about each headman in school
 
-### Query:
+**SQL command**
 ```sql
 SELECT `user`.`first_name`, `class`.`graduate_year`, `class`.`parallel`, `user`.`email`, `user`.`phone`
 FROM `user`
@@ -368,7 +366,7 @@ ON `class`.`id` = `user_class`.`class_id`
 WHERE `class_role`.`name` = 'Headman';
 ```
 
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Query 6 result table -->
 | first\_name | graduate\_year | parallel | email | phone |
@@ -385,7 +383,7 @@ WHERE `class_role`.`name` = 'Headman';
 # Query 7
 Show number of participants for each club
 
-### Query:
+**SQL command**
 ```sql
 SELECT `club`.`name`, COUNT(`club`.`name`) AS participants
 FROM `club`
@@ -399,7 +397,7 @@ GROUP BY `club`.`name`
 ORDER BY participants DESC;
 ```
 
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Query 7 result table -->
 | name | participants |
@@ -421,7 +419,7 @@ ORDER BY participants DESC;
 # Query 8
 Show different lessons that are attended by students who will graduate in 2020 or in 2021
 
-### Query:
+**SQL command**
 ```sql
 SELECT DISTINCT `lesson`.`name`
 FROM `lesson`
@@ -432,7 +430,7 @@ ON `class`.`id` = `lesson_schedule`.`class_id`
 WHERE `class`.`graduate_year` = '2020' OR `class`.`graduate_year` = '2021';
 ```
 
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Query 8 result table -->
 | name |
@@ -460,7 +458,7 @@ WHERE `class`.`graduate_year` = '2020' OR `class`.`graduate_year` = '2021';
 # Query 9
 Show only curators and user with birthday between 6 july 2003 and 21 november 2005
 
-### Query:
+**SQL command**
 ```sql
 SELECT `user`.`first_name`, `user`.`birth_date`,
 CASE
@@ -475,7 +473,7 @@ FROM `user`
 WHERE `class_role`.`name` = 'Curator' OR `user`.`birth_date` BETWEEN '2003-07-06' AND '2005-11-21';
 ```
 
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Query 9 result table -->
 | first\_name | birth\_date | Gender |
@@ -503,14 +501,14 @@ WHERE `class_role`.`name` = 'Curator' OR `user`.`birth_date` BETWEEN '2003-07-06
 # Query 10
 Show minimum and maximum capacity of students that can fit in one classroom which has no camera inside
 
-### Query:
+**SQL command**
 ```sql
 SELECT MIN(`classroom`.`capacity`) AS "Minimum", MAX(`classroom`.`capacity`) AS "Maximum"
 FROM `classroom`
 WHERE `classroom`.`has_camera` <> 0;
 ```
 
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Query 10 result table -->
 | Minimum | Maximum |
@@ -523,7 +521,7 @@ WHERE `classroom`.`has_camera` <> 0;
 # Query 11
 Show the earliest starting lessons
 
-### Query:
+**SQL command**
 ```sql
 SELECT `lesson`.`name`, `lesson_schedule`.`start_time`, `lesson_schedule`.`finish_time`
 FROM `lesson`
@@ -535,7 +533,7 @@ WHERE `lesson_schedule`.`start_time` = (
 );
 ```
 
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Query 11 result table -->
 | name | start\_time | finish\_time |
@@ -549,7 +547,7 @@ WHERE `lesson_schedule`.`start_time` = (
 # Query 12
 Show list of teachers who teach 3 lessons in which students win the most prizes in competition
 
-### Query:
+**SQL command**
 ```sql
 SELECT `user`.`first_name`, `user`.`last_name`, subject.`name` AS "Lesson name"
 FROM `user`
@@ -567,7 +565,7 @@ INNER JOIN (
 ON `teacher`.`lesson_id` = subject.`id`;
 ```
 
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Query 12 result table -->
 | first\_name | last\_name | Lesson name |
@@ -583,7 +581,7 @@ ON `teacher`.`lesson_id` = subject.`id`;
 # Query 13
 Show lessons that take place in classrooms with a capacity of more than 21 people
 
-### Query:
+**SQL command**
 ```sql
 SELECT `lesson`.`name`, `lesson_schedule`.`start_time`, `day_of_week`.`name` AS "Day of the week"
 FROM `lesson`
@@ -600,7 +598,7 @@ ORDER BY `day_of_week`.`id` ASC,
 `lesson_schedule`.`start_time` ASC;
 ```
 
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Query 13 result table -->
 | name | start\_time | Day of the week |
@@ -622,7 +620,7 @@ ORDER BY `day_of_week`.`id` ASC,
 # Query 14
 Show details about teachers who teach lessons earlier than at 12:00
 
-### Query:
+**SQL command**
 ```sql
 SELECT `user`.`first_name`, `user`.`last_name`, `user`.`phone`
 FROM `user`
@@ -639,7 +637,7 @@ WHERE `lesson_schedule`.`lesson_id` IN (
 );
 ```
 
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Query 14 result table -->
 | first\_name | last\_name | phone |
@@ -653,7 +651,7 @@ WHERE `lesson_schedule`.`lesson_id` IN (
 # Query 15
 Show first name, country, city, address of users who participate in cybersport club
 
-### Query:
+**SQL command**
 ```sql
 SELECT `user`.`first_name`, `country`.`name` AS "Country", `city`.`name` AS "City", `address`.`street_name`, `address`.`house_number`
 FROM `country`
@@ -676,7 +674,7 @@ WHERE `user_club_role`.`role_id` IN (
 );
 ```
 
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Query 15 result table -->
 | first\_name | Country | City | street\_name | house\_number |
@@ -692,7 +690,7 @@ WHERE `user_club_role`.`role_id` IN (
 # Query 16
 Show the most experienced teachers (those who have working experience > 30 years or any teacher category excluding "Without category")
 
-### Query:
+**SQL command**
 ```sql
 SELECT `user`.`first_name`, `user`.`last_name`, `lesson`.`name` AS "Lesson"
 FROM `user`
@@ -708,7 +706,7 @@ WHERE `teacher`.`user_id` IN (
 );
 ```
 
-### Query result:
+**Output result after executing SQL command:**
 
 <!-- Query 16 result table -->
 | first\_name | last\_name | Lesson |
