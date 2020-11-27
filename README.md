@@ -331,15 +331,14 @@ Show competitions where level of competition starts with "Rep".
 
 **SQL command:**
 ```sql
-SELECT `user`.`first_name`, `user`.`last_name`, `prize`.`name`, `competition`.`title`
-FROM `user`
-INNER JOIN `user_competition`
-ON `user`.`id` = `user_competition`.`user_id`
-INNER JOIN `prize`
-ON `user_competition`.`prize_id` = `prize`.`id`
-INNER JOIN `competition`
-ON `competition`.`id` = `user_competition`.`competition_id`
-ORDER BY `prize`.`id`, `user`.`first_name` ASC;
+SELECT `competition`.`title`, `city`.`name`, `competition`.`start_date`
+FROM `competition`
+INNER JOIN `level`
+ON `competition`.`level_id` = `level`.`id`
+LEFT JOIN `city`
+ON `city`.`id` = `competition`.`city_id`
+WHERE `level`.`name` LIKE 'Rep%'
+ORDER BY `competition`.`start_date` ASC;
 ```
 
 **Output result after executing SQL command:**
